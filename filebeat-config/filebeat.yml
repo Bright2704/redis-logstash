@@ -1,0 +1,29 @@
+path.data: /var/lib/beats
+
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+# output.elasticsearch:
+#   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+#   username: '${ELASTICSEARCH_USERNAME:}'
+#   password: '${ELASTICSEARCH_PASSWORD:}'
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  # username: "elastic"
+  # password: "<password>"
+setup.kibana:
+  host: "http://kibana:5601"
+setup.logstash:
+  host: "http://logstash:5044"
+
+
+
+
+
