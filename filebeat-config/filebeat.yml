@@ -1,5 +1,5 @@
 path.data: /var/lib/beats
-
+path.config: /usr/share/filebeat
 filebeat.config:
   modules:
     path: ${path.config}/modules.d/*.yml
@@ -16,12 +16,18 @@ processors:
 
 output.elasticsearch:
   hosts: ["http://elasticsearch:9200"]
-  # username: "elastic"
-  # password: "<password>"
+  username: "elastic"
+  password: "123456"
 setup.kibana:
   host: "http://kibana:5601"
 setup.logstash:
   host: "http://logstash:5044"
+
+
+
+
+
+
 
 
 
